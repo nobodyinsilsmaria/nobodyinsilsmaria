@@ -15,7 +15,17 @@ const config = {
           extensions: ['.md']
         })],
 	kit: {
-		adapter: adapter()
+		adapter: adapter({
+            edge: false,
+
+            // an array of dependencies that esbuild should treat
+            // as external when bundling functions
+            external: [],
+
+            // if true, will split your app into multiple functions
+            // instead of creating a single one for the entire app
+            split: false
+        }),
 	}
 };
 
